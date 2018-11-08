@@ -1,16 +1,26 @@
 <!doctype html>
 
 <html>
-	<head>
-		<title>Data Viz Catalog</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1.0">
-		<script src="https://d3js.org/d3.v5.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="../css/charts.css">
-		<script src="../js/barchart.js"></script>
-	</head>
 
-	<body>
-		<svg id='barchart'></svg>
-	</body>
+  <head>
+    <title>Data Viz Catalog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/charts.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script src="../js/barchart.js"></script>
+  </head>
+
+  <body>
+    <div id='background'></div>
+
+    <div class="graph">
+      <h2>Amount of Boxtops Collected</h2> <svg id='barchart'></svg>
+    </div>
+    <div class='desc'>
+      <h1>Bar Chart</h1>
+    </div>
+  </body>
+
 </html>

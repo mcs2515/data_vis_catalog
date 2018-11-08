@@ -1,22 +1,57 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-
-svg{
-	font-family: 'Roboto', sans-serif;
-	font-weight: 100;
-	background-color: white;
-	padding: 10px 20px 20px 10px;
+#background {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: #00a1ff;
 }
 
-#tooltip{
-    position: absolute;			
-    text-align: center;
-    background: black;
-    color: white;
-    border-radius: 3px;
-    padding: 10px 5px;
-    pointer-events: none;
-    font-family: 'Roboto', sans-serif;
-    letter-spacing: 1px;
-    font-size: 10pt;
+.graph {
+  position: relative;
+  padding-top: 10em;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 0 auto;
+  width: 900px;
+  padding: 0px 15px;
+  padding-top: 15px;
+  background: white;
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+svg {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  background-color: white;
+  padding: 10px 20px 20px 10px;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+#tooltip {
+  position: absolute;
+  text-align: center;
+  background: black;
+  color: white;
+  border-radius: 3px;
+  padding: 10px 5px;
+  pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  font-size: 10pt;
+}
+
+.desc {
+  margin-top: 5em;
 }
