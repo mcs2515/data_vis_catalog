@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+svg{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	background-color: white;
+	padding: 10px 20px 20px 10px;
+}
+
+#tooltip{
+    position: absolute;			
+    text-align: center;
+    background: black;
+    color: white;
+    border-radius: 3px;
+    padding: 10px 5px;
+    pointer-events: none;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    font-size: 10pt;
+}
