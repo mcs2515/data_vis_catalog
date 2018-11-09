@@ -37,7 +37,25 @@ function makeChart(dataset) {
 
 	let xAxis = d3.axisBottom(xScale);
 	let yAxis = d3.axisLeft(yScale);
+	
+	//create dotted horizontal lines
+	chart.selectAll('.y-grid')
+		.data(dataset)
+		.enter()
+		.append("g")
+		.attr("class", "y-grid")
+		.style("stroke-dasharray", ("3,3"))
+		.attr('transform', `translate(${80},0)`)
+		.style('opacity', 0)
+		.call(
+			d3.axisLeft(yScale)
+			.ticks(5)
+			.tickSize(-w)
+			.tickFormat("")
+		)
+		.style('opacity', 1);
 
+	//create the bars
 	chart.selectAll('rect')
 		.data(dataset)
 		.enter()
@@ -47,13 +65,13 @@ function makeChart(dataset) {
 		.attr('width', barwidth)
 		.attr('height', d => h - yScale(d.boxtops) - marginB)
 		.attr('transform', `translate(5,0)`)
-		.style('fill', '#7293cb')
+		.style('fill', '#2162d1')
 		.on('mousemove', function (d) {
 
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#2162d1')
+				.style('fill', '#ff5e00')
 				.style('cursor', 'pointer');
 
 			tooltip
@@ -68,7 +86,7 @@ function makeChart(dataset) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#7293cb');
+				.style('fill', '#2162d1');
 
 			tooltip
 				.transition("tooltip")
@@ -79,7 +97,10 @@ function makeChart(dataset) {
 	xAxis.tickFormat(function (d, i) {
 		if (i > 0 && i < 11) return "Class " + d
 	});
+	
+	yAxis.ticks(5);
 
+	//AXES
 	chart.append('g')
 		.attr('transform', `translate(40, ${h-marginB})`)
 		.call(xAxis);

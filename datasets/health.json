@@ -1,0 +1,18 @@
+[
+		{"country": "United States", "public": 16.9, "private":  10},
+		{"country": "Netherlands", "public": 11.8, "private": 3.1},
+		{"country": "Switzerland", "public": 11.8, "private": 4.5},
+		{"country": "Sweden", "public": 11.3, "private": 3.5},
+		{"country": "German", "public": 11.3, "private": 3.9},
+		{"country": "France", "public": 10.9, "private": 3.7},
+		{"country": "Denmark", "public": 10.2, "private": 2.9},
+		{"country": "Japan", "public": 10.2, "private": 2.9},
+		{"country": "Belgium", "public": 10.2, "private": 3.5},
+		{"country": "Canada", "public": 10.2, "private": 4},
+		{"country": "Austria", "public": 10.1, "private": 3.9},
+		{"country": "New Zealand", "public": 9.5, "private": 3.7},
+		{"country": "Greece", "public": 9.1, "private": 4.6},
+		{"country": "Portugal", "public": 9, "private": 4},
+		{"country": "Spain", "public": 8.5, "private": 3.2},
+		{"country": "Norway", "public": 8.5, "private": 2.3}
+	]

@@ -1,21 +1,10 @@
-function rowConverter(row) {
-	return {
-		country: row.country,
-		public: parseFloat(row.public),
-		private: parseFloat(row.private),
-	}
-}
-
-let dataset;
-
 function makeChart(dataset) {
 	let w = 900;
 	let h = 450;
-	let marginT = 20;
-	let marginL = 20;
-	let marginR = 20;
-	let marginB = 50;
-	let colors = d3.scaleOrdinal(d3.schemeAccent);
+	let marginT = 0;
+	let marginL = 40;
+	let marginR = 40;
+	let marginB = 70;
 
 	//bar width = (width of chart - margins ) / length of dataset  - padding
 	let barwidth = (w - (marginL + marginR)) / (dataset.length) - 15;
@@ -29,20 +18,32 @@ function makeChart(dataset) {
 		.range([marginL, w - marginR]);
 
 	let yScale = d3.scaleLinear()
-		.domain([0, d3.max(dataset, d => d.public + d.private)])
+		.domain([0, d3.max(dataset, d => d.public)])
 		.range([h - marginB, marginT]);
+	
+	console.log(d3.max(dataset, d => d.public));
+
+	let xAxis = d3.axisBottom(xScale);
+	let yAxis = d3.axisLeft(yScale);
 
 	let stack = d3.stack()
-		.keys(['public', 'private']);
+		.keys(['public', 'private'])
+		.order(d3.stackOrderAscending);
 
 	let stackedData = stack(dataset);
-	console.log(stackedData);
 
+	//draw the stacked group
 	let groups = chart.selectAll('g')
 		.data(stackedData)
 		.enter()
 		.append('g')
-		.style('fill', (d, i) => colors(i));
+		.style('fill', function (d, i) {
+			if (i % 2 == 0) {
+				return '#fdbe85';
+			} else {
+				return '#ff5e00';
+			}
+		});
 
 	groups.selectAll('rect')
 		.data(d => d)
@@ -51,29 +52,49 @@ function makeChart(dataset) {
 		.attr('x', d => xScale(d.data.country))
 		.attr('y', d => yScale(d[1]))
 		.attr('width', barwidth)
-		.attr('height', d => yScale(d[0]) - yScale(d[1]));
+		.attr('height', d => yScale(d[0]) - yScale(d[1]))
+		.attr('transform', `translate(47, 0)`);
+
+	//AXES
+	chart.append('g')
+		.attr('transform', `translate(40, ${h-marginB})`)
+		.call(xAxis)
+		.selectAll('text')
+		.attr("transform", "rotate(45)")
+		.style("text-anchor", "start");
+
+	chart.append('g')
+		.attr('transform', `translate(80, 0)`)
+		.call(yAxis);
+
+	//LABELS
+
+	//x-axis
+	chart.append("text")
+		.attr("class", "labels")
+		.attr("x", h)
+		.attr("y", (w / 2))
+		.style("text-anchor", "middle")
+		.text("Countries");
+
+	//y-axis
+	chart.append('text')
+		.attr('class', 'labels')
+		.attr("transform", "rotate(-90)")
+		.attr("x", -(h - marginB) / 2)
+		.attr("y", 30)
+		.style("text-anchor", "middle")
+		.text("Percentage Spent");
 }
 
 
 window.onload = function () {
-	dataset = [
-		{country: 'United States', public: 16.9, private:  9 },
-		{country: 'Netherlands', public: 11.8, private: 3.1 },
-		{country: 'Switzerland', public: 11.8, private: 4.5 },
-		{country: 'Sweden', public: 11.3, private: 3.5 },
-		{country: 'German', public: 11.3, private: 3.9 },
-		{country: 'France', public: 10.9, private: 3.7 },
-		{country: 'Denmark', public: 10.2, private: 2.9 },
-		{country: 'Japan', public: 10.2, private: 2.9 },
-		{country: 'Belgium', public: 10.2, private: 3.5 },
-		{country: 'Canada', public: 10.2, private: 4 },
-		{country: 'Austria', public: 10.1, private: 3.9 },
-		{country: 'New Zealand', public: 9.5, private: 3.7 },
-		{country: 'Greece', public: 9.1, private: 4.6 },
-		{country: 'Portugal', public: 9, private: 4 },
-		{country: 'Spain', public: 8.5, private: 3.2 },
-		{country: 'Norway', public: 8.5, private: 2.3 },
-	];
-	
-	makeChart(dataset);
+	let dataset;
+
+	d3.json('../datasets/health.json')
+		.then((json) => {
+			dataset = json;
+			console.log(dataset);
+			makeChart(dataset);
+		});
 }

@@ -26,7 +26,6 @@ h2 {
   padding: 0px 15px;
   padding-top: 25px;
   background: white;
-  border-radius: 5px 5px 0px 0px;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', sans-serif;
 }
@@ -37,8 +36,17 @@ svg {
   background-color: white;
   padding: 10px 20px 20px 10px;
 	margin: 0;
-	border-radius: 0px 0px 5px 5px;
 	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.y-grid line {
+	stroke: lightgrey;
+	stroke-opacity: 0.7;
+	shape-rendering: crispEdges;
+}
+
+.y-grid path {
+	stroke-width: 0;
 }
 
 #tooltip {
@@ -60,4 +68,32 @@ svg {
 	padding: 5em 15px 3em 15px;
 	max-width: 900px;
 	margin-bottom: 3em;
+}
+
+.key{
+	position: relative;
+	margin: 0 auto;
+	display: flex;
+	width: 900px;
+	padding-left: 20px;
+}
+
+.key .palette{
+	margin-top: 18px;
+}
+
+.key p{
+	margin-right: 20px;
+}
+
+.key #public{
+	width: 50px;
+	height: 20px;
+	background: #fdbe85;
+}
+
+.key #private{
+	width: 50px;
+	height: 20px;
+	background: #ff5e00;
 }
