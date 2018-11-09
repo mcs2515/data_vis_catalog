@@ -8,3 +8,36 @@ html {
 body {
   background: #fcfcfc;
 }
+
+p{
+	padding: 0px 10px;
+	font-size: 18px;
+	text-align: left;
+}
+
+.menu{
+	position:fixed;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	display: inline-flex;
+	background: #b2b2b2;
+}
+
+.menu a{
+	width: 80px;
+	height: 80px;
+	background: white;
+	border-radius: 50px;
+	line-height: 80px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 10px 10px;
+	transition: all .3s ease-out;
+}
+
+.menu a:hover{
+	cursor: pointer;
+	transform: translate(0,-5px);
+	
+}

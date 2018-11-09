@@ -12,8 +12,8 @@ function makeChart(dataset) {
 	let w = 900;
 	let h = 450;
 	let marginT = 20;
-	let marginL = 20;
-	let marginR = 20;
+	let marginL = 40;
+	let marginR = 40;
 	let marginB = 50;
 
 	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
@@ -85,7 +85,7 @@ function makeChart(dataset) {
 		.call(xAxis);
 
 	chart.append('g')
-		.attr('transform', `translate(60, 0)`)
+		.attr('transform', `translate(80, 0)`)
 		.call(yAxis);
 
 	// LABELS
@@ -94,7 +94,7 @@ function makeChart(dataset) {
 		.attr("class", "labels")
 		.attr("transform", "rotate(-90)")
 		.attr("x", -(h - marginB) / 2)
-		.attr("y", 20)
+		.attr("y", 30)
 		.style("text-anchor", "middle")
 		.text("Amount Collected");
 
