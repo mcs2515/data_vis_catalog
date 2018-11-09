@@ -26,11 +26,11 @@ function makeChart(dataset) {
 
 	let xScale = d3.scaleBand()
 		.domain(dataset.map(d => d.country))
-		.range(marginL, w - marginR);
+		.range([marginL, w - marginR]);
 
 	let yScale = d3.scaleLinear()
-		.domain([0, d3.max(dataset, d => d.public + d.private)] + 1)
-		.domain([h - marginB, marginT]);
+		.domain([0, d3.max(dataset, d => d.public + d.private)])
+		.range([h - marginB, marginT]);
 
 	let stack = d3.stack()
 		.keys(['public', 'private']);
