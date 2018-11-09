@@ -16,24 +16,24 @@ function makeChart(dataset) {
 	let marginR = 20;
 	let marginB = 50;
 	let colors = d3.scaleOrdinal(d3.schemeAccent);
-	
+
 	//bar width = (width of chart - margins ) / length of dataset  - padding
 	let barwidth = (w - (marginL + marginR)) / (dataset.length) - 15;
-	
+
 	let chart = d3.select('#stackedbar')
 		.attr('width', w)
 		.attr('height', h);
-	
+
 	let xScale = d3.scaleBand()
 		.domain(dataset.map(d => d.country))
-		.range(marginL, w-marginR);
-	
+		.range(marginL, w - marginR);
+
 	let yScale = d3.scaleLinear()
-		.domain([0, d3.max(dataset, d => d.public+d.private)]+1)
-		.domain([h-marginB, marginT]);
-  
+		.domain([0, d3.max(dataset, d => d.public + d.private)] + 1)
+		.domain([h - marginB, marginT]);
+
 	let stack = d3.stack()
-			.keys(['public', 'private']);
+		.keys(['public', 'private']);
 
 	let stackedData = stack(dataset);
 	console.log(stackedData);
@@ -42,7 +42,7 @@ function makeChart(dataset) {
 		.data(stackedData)
 		.enter()
 		.append('g')
-		.style('fill', (d,i)=>colors(i));
+		.style('fill', (d, i) => colors(i));
 
 	groups.selectAll('rect')
 		.data(d => d)
@@ -51,7 +51,7 @@ function makeChart(dataset) {
 		.attr('x', d => xScale(d.data.country))
 		.attr('y', d => yScale(d[1]))
 		.attr('width', barwidth)
-		.attr('height', d => yScale(d[0])-yScale(d[1]));
+		.attr('height', d => yScale(d[0]) - yScale(d[1]));
 }
 
 
