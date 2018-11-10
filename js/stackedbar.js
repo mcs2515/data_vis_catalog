@@ -94,7 +94,6 @@ window.onload = function () {
 	d3.json('../datasets/health.json')
 		.then((json) => {
 			dataset = json;
-			console.log(dataset);
 			makeChart(dataset);
 		});
 }

@@ -23,11 +23,13 @@ h1 {
 h2 {
   margin: 0 auto;
   width: 900px;
+	height: 30px;
   padding: 0px 15px;
   padding-top: 25px;
   background: white;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', sans-serif;
+	font-weight: 100;
 }
 
 svg {
@@ -75,7 +77,8 @@ svg {
 	margin: 0 auto;
 	display: flex;
 	width: 900px;
-	padding-left: 20px;
+	margin-bottom: -3.5em;
+	justify-content: flex-end;
 }
 
 .key .palette{
