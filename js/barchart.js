@@ -19,7 +19,7 @@ function makeChart(dataset) {
 	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
 
 	//bar width = (width of chart - margins ) / length of dataset  - padding
-	let barwidth = (w - (marginL + marginR)) / (dataset.length) - 15;
+	let barwidth = (w - (marginL + marginR)) / (dataset.length) - 30;
 
 	//set overall chart size
 	let chart = d3.select('#barchart')
@@ -64,7 +64,7 @@ function makeChart(dataset) {
 		.attr('y', d => yScale(d.boxtops))
 		.attr('width', barwidth)
 		.attr('height', d => h - yScale(d.boxtops) - marginB)
-		.attr('transform', `translate(5,0)`)
+		.attr('transform', `translate(15,0)`)
 		.style('fill', '#2162d1')
 		.on('mousemove', function (d) {
 
