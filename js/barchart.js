@@ -37,7 +37,7 @@ function makeChart(dataset) {
 
 	let xAxis = d3.axisBottom(xScale);
 	let yAxis = d3.axisLeft(yScale);
-	
+
 	//create dotted horizontal lines
 	chart.selectAll('.y-grid')
 		.data(dataset)
@@ -97,7 +97,7 @@ function makeChart(dataset) {
 	xAxis.tickFormat(function (d, i) {
 		if (i > 0 && i < 11) return "Class " + d
 	});
-	
+
 	yAxis.ticks(5);
 
 	//AXES
@@ -137,6 +137,6 @@ window.onload = function () {
 			dataset = d;
 			makeChart(dataset)
 		});
-	
+
 	chartlink();
 }

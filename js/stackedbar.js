@@ -20,11 +20,12 @@ function makeChart(dataset) {
 	let yScale = d3.scaleLinear()
 		.domain([0, d3.max(dataset, d => d.public)])
 		.range([h - marginB, marginT]);
-	
+
 	console.log(d3.max(dataset, d => d.public));
 
 	let xAxis = d3.axisBottom(xScale);
 	let yAxis = d3.axisLeft(yScale);
+	yAxis.tickFormat(d => d + "%");
 
 	let stack = d3.stack()
 		.keys(['public', 'private'])
@@ -58,7 +59,7 @@ function makeChart(dataset) {
 	//AXES
 	chart.append('g')
 		.attr('transform', `translate(30, ${h-marginB})`)
-	.attr('color', '#737373')
+		.attr('color', '#737373')
 		.call(xAxis)
 		.selectAll('text')
 		.attr("transform", "rotate(45)")
@@ -74,8 +75,8 @@ function makeChart(dataset) {
 	//x-axis
 	chart.append("text")
 		.attr("class", "labels")
-		.attr("x", w/2)
-		.attr("y", h-10)
+		.attr("x", w / 2)
+		.attr("y", h - 10)
 		.style("text-anchor", "middle")
 		.text("Countries");
 
@@ -98,6 +99,6 @@ window.onload = function () {
 			dataset = json;
 			makeChart(dataset);
 		});
-	
+
 	chartlink();
 }

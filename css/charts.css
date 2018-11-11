@@ -12,6 +12,7 @@
   position: relative;
   padding-top: 5em;
   text-align: center;
+	transition: all .3s ease-out;
 }
 
 h1 {
