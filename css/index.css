@@ -9,6 +9,7 @@ html {
 
 .hidden{
 	opacity: 0;
+	pointer-events: none;
 }
 
 body {
@@ -133,4 +134,9 @@ button:focus {outline:0;}
 	margin-bottom: 3em;
 	font-family: sans-serif;
 	color: #4f4f4f;
+}
+
+#name{
+	text-decoration: none;
+	cursor: default;
 }
