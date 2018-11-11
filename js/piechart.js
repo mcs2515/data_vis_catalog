@@ -1,13 +1,13 @@
 function makeChart(dataset) {
 	
-	let w = 900;
-	let h = 450;
+	let w = 700;
+	let h = 300;
 	
 	//set the inner radius and outer radius of pie
 	let innerRadius = 0;
 	let outerRadius = h/2.2;
 	
-	let colorScheme = d3.schemeCategory10;
+	let colorScheme = d3.schemeSet2;
 	let color = d3.scaleOrdinal(colorScheme);
 	
 	let chart = d3.select('#piechart')
@@ -28,7 +28,7 @@ function makeChart(dataset) {
 		.enter()
 		.append('g')
 			.attr('class', 'arc')
-			.attr('transform', `translate(${w/2.5}, ${h/2})`);
+			.attr('transform', `translate(${w/2}, ${(h/2)+10})`);
 	
 	//create the pie chart
 	arcs.append('path')
@@ -44,22 +44,39 @@ function makeChart(dataset) {
     .text(d => d.value + '%')
 		.style('fill', 'white');
 	
-	//legend
-	let legendScale = d3.scaleOrdinal()
-		.domain(pieData.map(d => d.data.name))
-		.range(colorScheme);
+//	//legend
+//	let legendScale = d3.scaleOrdinal()
+//		.domain(pieData.map(d => d.data.name))
+//		.range(colorScheme);
+//	
+//	chart.append('g')
+//		.attr('class', 'legendOrdinal')
+//		.attr("transform", `translate(${w-200}, 80)`);
+//	
+//	var legend = d3.legendColor()
+//		.shape('path', d3.symbol().type(d3.symbolSquare).size(500)())
+//		.shapePadding(10)
+//		.scale(legendScale);
+//	
+//	chart.select('.legendOrdinal')
+//		.call(legend);
 	
-	chart.append('g')
-		.attr('class', 'legendOrdinal')
-		.attr("transform", `translate(${w-250}, 120)`);
-	
-	var legend = d3.legendColor()
-		.shape('path', d3.symbol().type(d3.symbolSquare).size(700)())
-		.shapePadding(20)
-		.scale(legendScale);
-	
-	chart.select('.legendOrdinal')
-		.call(legend);
+	//add pet names
+	//code: https://stackoverflow.com/questions/8053424/label-outside-arc-pie-chart-d3-js
+	arcs.append('text')
+		.attr('class', 'pet-names')
+		.attr("transform", function(d) {
+				var c = arc.centroid(d),
+						x = c[0],
+						y = c[1],
+						// pythagorean theorem for hypotenuse
+						h = Math.sqrt(x*x + y*y);
+				return `translate(${(x/h * (outerRadius + 30))},
+					 ${(y/h * (outerRadius + 10))})`; 
+		})
+    .attr('text-anchor', 'middle')
+		.style('fill', '#737373')
+    .text(d => d.data.name);
 }
 
 
@@ -68,5 +85,7 @@ window.onload = function () {
 	d3.json("../datasets/pets.json")
 		.then((json) => {
 			makeChart(json);
-	})
+	});
+	
+	chartlink();
 }

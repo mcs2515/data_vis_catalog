@@ -1,6 +1,6 @@
 function makeChart(dataset) {
-	let w = 900;
-	let h = 450;
+	let w = 700;
+	let h = 300;
 	let marginT = 0;
 	let marginL = 40;
 	let marginR = 40;
@@ -53,18 +53,20 @@ function makeChart(dataset) {
 		.attr('y', d => yScale(d[1]))
 		.attr('width', barwidth)
 		.attr('height', d => yScale(d[0]) - yScale(d[1]))
-		.attr('transform', `translate(47, 0)`);
+		.attr('transform', `translate(38, 0)`);
 
 	//AXES
 	chart.append('g')
-		.attr('transform', `translate(40, ${h-marginB})`)
+		.attr('transform', `translate(30, ${h-marginB})`)
+	.attr('color', '#737373')
 		.call(xAxis)
 		.selectAll('text')
 		.attr("transform", "rotate(45)")
 		.style("text-anchor", "start");
 
 	chart.append('g')
-		.attr('transform', `translate(80, 0)`)
+		.attr('transform', `translate(70, 0)`)
+		.attr('color', '#737373')
 		.call(yAxis);
 
 	//LABELS
@@ -72,8 +74,8 @@ function makeChart(dataset) {
 	//x-axis
 	chart.append("text")
 		.attr("class", "labels")
-		.attr("x", h)
-		.attr("y", (w / 2))
+		.attr("x", w/2)
+		.attr("y", h-10)
 		.style("text-anchor", "middle")
 		.text("Countries");
 
@@ -96,4 +98,6 @@ window.onload = function () {
 			dataset = json;
 			makeChart(dataset);
 		});
+	
+	chartlink();
 }

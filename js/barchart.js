@@ -9,11 +9,11 @@ let dataset;
 
 function makeChart(dataset) {
 
-	let w = 900;
-	let h = 450;
+	let w = 700;
+	let h = 300;
 	let marginT = 20;
 	let marginL = 40;
-	let marginR = 40;
+	let marginR = 50;
 	let marginB = 50;
 
 	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
@@ -50,7 +50,7 @@ function makeChart(dataset) {
 		.call(
 			d3.axisLeft(yScale)
 			.ticks(5)
-			.tickSize(-w)
+			.tickSize(-610)
 			.tickFormat("")
 		)
 		.style('opacity', 1);
@@ -65,13 +65,13 @@ function makeChart(dataset) {
 		.attr('width', barwidth)
 		.attr('height', d => h - yScale(d.boxtops) - marginB)
 		.attr('transform', `translate(15,0)`)
-		.style('fill', '#2162d1')
+		.style('fill', '#8dafef')
 		.on('mousemove', function (d) {
 
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#ff5e00')
+				.style('fill', '#efa38c')
 				.style('cursor', 'pointer');
 
 			tooltip
@@ -86,7 +86,7 @@ function makeChart(dataset) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#2162d1');
+				.style('fill', '#8dafef');
 
 			tooltip
 				.transition("tooltip")
@@ -102,11 +102,13 @@ function makeChart(dataset) {
 
 	//AXES
 	chart.append('g')
-		.attr('transform', `translate(40, ${h-marginB})`)
+		.attr('transform', `translate(30, ${h-marginB})`)
+		.attr('color', '#737373')
 		.call(xAxis);
 
 	chart.append('g')
-		.attr('transform', `translate(80, 0)`)
+		.attr('transform', `translate(70, 0)`)
+		.attr('color', '#737373')
 		.call(yAxis);
 
 	// LABELS
@@ -135,4 +137,6 @@ window.onload = function () {
 			dataset = d;
 			makeChart(dataset)
 		});
+	
+	chartlink();
 }

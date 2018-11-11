@@ -1,12 +1,12 @@
 function makeChart(dataset) {
 	
-	let w = 900;
-	let h = 450;
+	let w = 700;
+	let h = 356;
 	
-	let innerRadius = (h/2.2) - 50;
-	let outerRadius = h/2.2;
+	let innerRadius = (h/2.3) - 50;
+	let outerRadius = h/2.3;
 	
-	let colorScheme = d3.schemeCategory10;
+	let colorScheme = d3.schemeSet2;
 	let color = d3.scaleOrdinal(colorScheme);
 	
 	let chart = d3.select('#donutchart')
@@ -27,7 +27,7 @@ function makeChart(dataset) {
 		.enter()
 		.append('g')
 			.attr('class', 'arc')
-			.attr('transform', `translate(${w/2}, ${h/2})`);
+			.attr('transform', `translate(${(w/2)+5}, ${(h/2)+20})`);
 	
 	arcs.append('path')
 		.attr('fill', (d,i) => color(i))
@@ -37,10 +37,11 @@ function makeChart(dataset) {
 	
 	//chart title
 	chart.append('text')
-    .attr('transform', `translate(${w/2}, ${h/2})`)
+    .attr('transform', `translate(${(w/2)+5}, ${(h/2)+ 25})`)
     .attr('text-anchor', 'middle')
     .text("Pet Owners")
-		.style("font-size", "24px");
+		.style("font-size", "24px")
+		.style('fill', '#737373');
 	
 	//add value labels to pie chart
 	arcs.append('text')
@@ -63,6 +64,7 @@ function makeChart(dataset) {
 					 ${(y/h * (outerRadius + 10))})`; 
 		})
     .attr('text-anchor', 'middle')
+		.style('fill', '#737373')
     .text(d => d.data.name);
 }
 
@@ -73,4 +75,6 @@ window.onload = function () {
 		.then((json) => {
 			makeChart(json);
 	})
+	
+	chartlink();
 }
