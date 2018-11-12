@@ -5,6 +5,8 @@ function makeChart(dataset) {
 	let marginL = 40;
 	let marginR = 40;
 	let marginB = 70;
+	
+	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
 
 	//bar width = (width of chart - margins ) / length of dataset  - padding
 	let barwidth = (w - (marginL + marginR)) / (dataset.length) - 15;
@@ -30,6 +32,7 @@ function makeChart(dataset) {
 		.order(d3.stackOrderAscending);
 
 	let stackedData = stack(dataset);
+	console.log(stackedData);
 
 	//draw the stacked group
 	let groups = chart.selectAll('g')
@@ -42,7 +45,32 @@ function makeChart(dataset) {
 			} else {
 				return '#ff5e00';
 			}
-		});
+		})
+	.on('mousemove', function (d) {
+
+					d3.select(this)
+						.transition("fill")
+						.duration(250)
+						.style('cursor', 'pointer');
+		
+					tooltip
+						.style('left', (d3.event.pageX) - 50 + "px")
+						.style('top', (d3.event.pageY) - 40 + "px")
+						.text(d.key + ":" + d[0] + "%")
+						.transition("tooltip")
+						.duration(200)
+						.style("opacity", .8);
+				})
+				.on('mouseout', function (d) {
+					d3.select(this)
+						.transition("fill")
+						.duration(250);
+
+					tooltip
+						.transition("tooltip")
+						.duration(500)
+						.style("opacity", 0);
+				});
 
 	groups.selectAll('rect')
 		.data(d => d)
@@ -52,7 +80,8 @@ function makeChart(dataset) {
 		.attr('y', d => yScale(d[1]))
 		.attr('width', barwidth)
 		.attr('height', d => yScale(d[0]) - yScale(d[1]))
-		.attr('transform', `translate(38, 0)`);
+		.attr('transform', `translate(38, 0)`)
+		;
 
 	//AXES
 	chart.append('g')

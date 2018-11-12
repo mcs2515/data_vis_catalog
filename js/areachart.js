@@ -1,7 +1,3 @@
-function rowConverter(row) {
-	return {}
-}
-
 function makeChart(dataset) {
 	let w = 700;
 	let h = 300;
