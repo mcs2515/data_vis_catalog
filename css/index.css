@@ -25,7 +25,7 @@ button:focus {outline:0;}
 
 .header{
 	padding-top: 40px; 
-	width: 1070px;
+	max-width: 1070px;
 	position: relative;
 	margin: 0 auto;
 	display: flex;

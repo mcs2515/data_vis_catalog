@@ -46,7 +46,7 @@ function makeChart(dataset) {
 		.data(dataset)
 		.enter()
 		.append('path')
-		.style('fill', '#b89276')
+		.style('fill', '#8adae2')
 		.style('opacity', .08)
 		.attr('transform', `translate(30, 0)`)
 		.attr('d', d => area(dataset));
@@ -57,7 +57,7 @@ function makeChart(dataset) {
 		.enter()
 		.append('path')
 		.attr('class', 'line')
-		.style('stroke', '#b89276') //d9c8ca
+		.style('stroke', '#8adae2') //d9c8ca
 		.attr("stroke-width", 5)
 		.style('fill', 'none')
 		.attr('transform', `translate(30, 0)`)

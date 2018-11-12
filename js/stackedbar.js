@@ -21,8 +21,6 @@ function makeChart(dataset) {
 		.domain([0, d3.max(dataset, d => d.public)])
 		.range([h - marginB, marginT]);
 
-	console.log(d3.max(dataset, d => d.public));
-
 	let xAxis = d3.axisBottom(xScale);
 	let yAxis = d3.axisLeft(yScale);
 	yAxis.tickFormat(d => d + "%");
@@ -92,12 +90,9 @@ function makeChart(dataset) {
 
 
 window.onload = function () {
-	let dataset;
-
 	d3.json('../datasets/health.json')
 		.then((json) => {
-			dataset = json;
-			makeChart(dataset);
+			makeChart(json);
 		});
 
 	chartlink();

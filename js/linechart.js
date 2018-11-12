@@ -37,7 +37,7 @@ function makeChart(dataset) {
 		.enter()
 		.append('path')
 		.attr('class', 'line')
-		.style('stroke', '#b89276') //d9c8ca
+		.style('stroke', '#e28a8a') //d9c8ca
 		.attr("stroke-width", 5)
 		.style('fill', 'none')
 		.attr('transform', `translate(30, 0)`)
