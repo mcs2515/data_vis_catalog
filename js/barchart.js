@@ -11,6 +11,7 @@ function makeChart(dataset) {
 
 	let w = 700;
 	let h = 300;
+	
 	let marginT = 20;
 	let marginL = 40;
 	let marginR = 50;
@@ -112,6 +113,14 @@ function makeChart(dataset) {
 		.call(yAxis);
 
 	// LABELS
+	//x-axis
+	chart.append("text")
+		.attr("class", "labels")
+		.attr("x", w / 2)
+		.attr("y", h - 10)
+		.style("text-anchor", "middle")
+		.text("Classes");
+	
 	//y-axis
 	chart.append("text")
 		.attr("class", "labels")
@@ -120,14 +129,6 @@ function makeChart(dataset) {
 		.attr("y", 30)
 		.style("text-anchor", "middle")
 		.text("Amount Collected");
-
-	//x-axis
-	chart.append("text")
-		.attr("class", "labels")
-		.attr("x", h)
-		.attr("y", (w / 2))
-		.style("text-anchor", "middle")
-		.text("Classes");
 }
 
 
