@@ -79,34 +79,3 @@ svg {
 	font-family: sans-serif;
 	color: #4f4f4f;
 }
-
-.key{
-	position: relative;
-	margin: 0 auto;
-	display: flex;
-	width: 750px;
-	margin-bottom: -57px;
-	justify-content: flex-end;
-	font-family: sans-serif;
-	color: #4f4f4f;
-}
-
-.key .palette{
-	margin-top: 18px;
-}
-
-.key p{
-	margin-right: 20px;
-}
-
-.key #public{
-	width: 50px;
-	height: 20px;
-	background: #fdbe85;
-}
-
-.key #private{
-	width: 50px;
-	height: 20px;
-	background: #ff5e00;
-}
