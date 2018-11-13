@@ -8,35 +8,34 @@ function makeChart(dataset) {
 		.attr('width', w)
 		.attr('height', h);
 
-	var root = d3.hierarchy(dataset);
-	root = root.sum(d => d.value);
+	var root = d3.hierarchy(dataset).sum(d => d.value);
 
 	var treeMap = d3.treemap()
 		.size([w - 20, h])
 		.paddingOuter(30)
-		.paddingInner(5);
+		.paddingInner(10);
 
-	treeMap = treeMap(root);
+	treeMap(root);
 
 	//create treemap 
 	chart.selectAll('rect')
-		.data(treeMap.descendants())
+		.data(root.descendants())
 		.enter()
 		.append('rect')
-		.attr('x', (d) => d.x0)
-		.attr('y', (d) => d.y0)
-		.attr('width', (d) => d.x1 - d.x0)
-		.attr('height', (d) => d.y1 - d.y0)
+		.attr('x', d => d.x0)
+		.attr('y', d => d.y0)
+		.attr('width', d => d.x1 - d.x0)
+		.attr('height', d => d.y1 - d.y0)
 		.style('fill', d => color(d.depth))
 		.style('fill-opacity', 0.5)
 		.attr('transform', `translate(15, 0)`);
 
 	// add text 
 	chart.selectAll('text')
-		.data(treeMap.descendants())
+		.data(root.descendants())
 		.enter()
 		.append('text')
-		.attr('x', d => d.x1 / 2)
+		.attr('x', d => d.x0 + (d.x1-d.x0) / 2)
 		.attr('y', d => d.y0 + 20)
 		.style("text-anchor", "middle")
 		.text(d => d.data.parent)

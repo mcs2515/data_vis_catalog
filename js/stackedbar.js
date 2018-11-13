@@ -1,6 +1,7 @@
 function makeChart(dataset) {
   let w = 700;
   let h = 300;
+	
   let marginT = 0;
   let marginL = 40;
   let marginR = 40;
@@ -46,7 +47,7 @@ function makeChart(dataset) {
       if (i % 2 == 0) {
         return '#fdbe85';
       } else {
-        return '#ff5e00';
+        return '#fd6c70';
       }
     })
     .on('mousemove', function (d) {

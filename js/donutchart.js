@@ -31,6 +31,7 @@ function makeChart(dataset) {
 
 	arcs.append('path')
 		.attr('fill', (d, i) => color(i))
+		.style('fill-opacity', 0.9)
 		.attr('d', arc)
 		.append('title')
 		.text(d => d.data.name);
