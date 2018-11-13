@@ -2,7 +2,7 @@ function makeChart(dataset) {
 	let w = 700;
 	let h = 300;
 
-	console.log(dataset);
+	var color = d3.scaleOrdinal().range(d3.schemeSet3);
 
 	let chart = d3.select('#treemapchart')
 		.attr('width', w)
@@ -17,10 +17,6 @@ function makeChart(dataset) {
 		.paddingInner(5);
 
 	treeMap = treeMap(root);
-	console.log(treeMap);
-
-	var color = d3.scaleOrdinal().range(d3.schemeSet3);
-
 
 	//create treemap 
 	chart.selectAll('rect')

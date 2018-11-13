@@ -2,11 +2,14 @@ function makeChart(dataset) {
 
 	let w = 700;
 	let h = 300;
+
 	let marginT = 20;
 	let marginL = 40;
 	let marginR = 50;
 	let marginB = 50;
-	
+
+	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
+
 	let parseDate = d3.timeParse("%Y-%m");
 
 	let chart = d3.select('#linechart')
@@ -45,16 +48,45 @@ function makeChart(dataset) {
 		.attr("stroke-linecap", "round")
 		.attr('d', d => line(dataset));
 
-	//	chart.selectAll(".circle")
-	//		.data(dataset)
-	//		.enter()
-	//		.append('circle')
-	//		.attr('class', 'circle')
-	//		.attr('r', 5)
-	//		.attr('cx', d=>xScale(d.month))
-	//		.attr('cy', d=>yScale(d.drinks_sold))
-	//		.attr('transform', `translate(55, 0)`)
-	//		.style('fill', '#b89276' );
+	chart.selectAll(".circle")
+		.data(dataset)
+		.enter()
+		.append('circle')
+		.attr('class', 'circle')
+		.attr('r', 5)
+		.attr('cx', d => xScale(parseDate(d.date)))
+		.attr('cy', d => yScale(d.drinks_sold))
+		.attr('transform', `translate(30, 0)`)
+		.style('fill', '#cc6161')
+		.on('mousemove', function (d) {
+
+			d3.select(this)
+				.transition("fill")
+				.duration(250)
+				.style('fill', 'white')
+				.style('stroke', "#cc6161")
+				.style('cursor', 'pointer');
+
+			tooltip
+				.style('left', (d3.event.pageX) - 50 + "px")
+				.style('top', (d3.event.pageY) - 40 + "px")
+				.text(d.drinks_sold.toLocaleString() + " drinks")
+				.transition("tooltip")
+				.duration(200)
+				.style("opacity", .8);
+		})
+		.on('mouseout', function (d) {
+			d3.select(this)
+				.transition("fill")
+				.duration(250)
+				.style('fill', '#cc6161')
+				.style('stroke', "none");
+
+			tooltip
+				.transition("tooltip")
+				.duration(500)
+				.style("opacity", 0);
+		});;
 
 	//AXES
 	chart.append('g')

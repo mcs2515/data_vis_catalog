@@ -19,9 +19,9 @@ function makeChart(dataset) {
 	let marginB = 50;
 	let color = ['#78c679', '#ffffcc', '#c2e699']
 	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
-	
+
 	//sort the data first!
-	dataset.sort((a,b)=>b.year - a.year);
+	dataset.sort((a, b) => b.year - a.year);
 
 	let stack = d3.stack();
 	let keys = (['latte', 'brewed_coffee', 'ice_coffee']);
@@ -32,17 +32,17 @@ function makeChart(dataset) {
 		.attr('height', h);
 
 	let xScale = d3.scaleTime()
-		.domain([d3.min(dataset, d=> d.year), d3.max(dataset, d=>d.year)])
+		.domain([d3.min(dataset, d => d.year), d3.max(dataset, d => d.year)])
 		.range([marginL, w - marginR]);
 
 	let yScale = d3.scaleLinear()
 		.domain([0, d3.max(dataset, d => {
 			let sum = 0;
-			
-			for(var i = 0; i < keys.length; i++) {
-					sum += d[keys[i]];
+
+			for (var i = 0; i < keys.length; i++) {
+				sum += d[keys[i]];
 			}
-			
+
 			return sum;
 		})])
 		.range([h - marginB, marginT]);
@@ -67,34 +67,34 @@ function makeChart(dataset) {
 		.enter()
 		.append("path")
 		.attr("d", area)
-		.attr("fill", (d, i)  => color[i])
+		.attr("fill", (d, i) => color[i])
 		.style('opacity', 1)
 		.attr('transform', `translate(30, 0)`)
 		.on('mousemove', function (d) {
 
-				d3.select(this)
-					.transition("fill")
-					.duration(250)
-					.style('cursor', 'pointer');
+			d3.select(this)
+				.transition("fill")
+				.duration(250)
+				.style('cursor', 'pointer');
 
-				tooltip
-					.style('left', (d3.event.pageX) - 50 + "px")
-					.style('top', (d3.event.pageY) - 40 + "px")
-					.text(d.key)
-					.transition("tooltip")
-					.duration(200)
-					.style("opacity", .8);
-			})
-			.on('mouseout', function (d) {
-				d3.select(this)
-					.transition("fill")
-					.duration(250);
+			tooltip
+				.style('left', (d3.event.pageX) - 50 + "px")
+				.style('top', (d3.event.pageY) - 40 + "px")
+				.text(d.key)
+				.transition("tooltip")
+				.duration(200)
+				.style("opacity", .8);
+		})
+		.on('mouseout', function (d) {
+			d3.select(this)
+				.transition("fill")
+				.duration(250);
 
-				tooltip
-					.transition("tooltip")
-					.duration(500)
-					.style("opacity", 0);
-			});
+			tooltip
+				.transition("tooltip")
+				.duration(500)
+				.style("opacity", 0);
+		});
 
 	//AXES
 	chart.append('g')
