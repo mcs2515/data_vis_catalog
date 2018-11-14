@@ -1,0 +1,34 @@
+{
+	"parent": "Mammals",
+	"children": [
+		{
+			"parent": "Dog",
+			"value": 10
+			},
+		{
+			"parent": "Cat",
+			"value": 8
+			},
+		{
+			"parent": "Small Mammals",
+			"children": [
+				{
+					"parent": "Rabbits",
+					"value": 3
+					},
+				{
+					"parent": "Mice",
+					"value": 10
+					},
+				{
+					"parent": "Rats",
+					"value": 9
+					},
+				{
+					"parent": "Guinea Pig",
+					"value": 4
+					}
+				]
+			}
+		]
+}

@@ -48,7 +48,7 @@ function makeChart(dataset) {
 
 
 window.onload = function () {
-	d3.json('../datasets/animals.json')
+	d3.json('../datasets/pet_shop.json')
 		.then((json) => {
 			dataset = json;
 			makeChart(dataset);

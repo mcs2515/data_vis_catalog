@@ -1,0 +1,30 @@
+{
+	"name": "Mammal",
+	"children": [
+		{
+			"name": "Rodent",
+			"children": [
+				{
+					"name": "Squirrel"
+        }
+			]
+		},
+		{
+			"name": "Carnivore",
+			"children": [
+				{
+					"name": "Cat"
+					},
+				{
+					"name": "Dog"
+					},
+				{
+					"name": "Lion"
+					}
+			]
+		},
+		{
+			"name": "Human"
+		}
+  ]
+}
