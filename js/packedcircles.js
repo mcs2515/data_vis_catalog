@@ -4,7 +4,7 @@ function rowConverter(row) {
 
 function makeChart(dataset) {
 	let w = 700;
-	let h = 300;
+	let h = 350;
 
 	let root = d3.hierarchy(dataset).sum(d => d.value || 0);
 	var color = d3.scaleOrdinal().range(d3.schemeSet3);

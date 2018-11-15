@@ -10,7 +10,7 @@ let dataset;
 function makeChart(dataset) {
 
 	let w = 700;
-	let h = 300;
+	let h = 350;
 	
 	let marginT = 20;
 	let marginL = 40;

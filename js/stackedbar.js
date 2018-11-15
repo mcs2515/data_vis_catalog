@@ -1,6 +1,6 @@
 function makeChart(dataset) {
   let w = 700;
-  let h = 300;
+  let h = 350;
 	
   let marginT = 0;
   let marginL = 40;

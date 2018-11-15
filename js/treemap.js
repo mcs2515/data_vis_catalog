@@ -1,6 +1,6 @@
 function makeChart(dataset) {
 	let w = 700;
-	let h = 300;
+	let h = 350;
 
 	var color = d3.scaleOrdinal().range(d3.schemeSet3);
 

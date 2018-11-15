@@ -5,7 +5,7 @@ function rowConverter(row) {
 
 function makeChart(dataset) {
 	let w = 700;
-	let h = 300;
+	let h = 350;
 	
 	let chart = d3.select('#mapchart')
 		.attr('width', w)

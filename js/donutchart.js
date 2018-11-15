@@ -14,7 +14,8 @@ function makeChart(dataset) {
 		.attr('height', h);
 
 	let pie = d3.pie()
-		.value(d => d.value);
+		.value(d => d.value)
+		.padAngle(.02);
 
 	let pieData = pie(dataset);
 

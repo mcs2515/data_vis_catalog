@@ -1,7 +1,7 @@
 function makeChart(dataset) {
 
 	let w = 700;
-	let h = 300;
+	let h = 350;
 
 	//set the inner radius and outer radius of pie
 	let innerRadius = 0;

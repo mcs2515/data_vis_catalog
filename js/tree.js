@@ -4,7 +4,7 @@ function rowConverter(row) {
 
 function makeChart(dataset) {
 	let w = 700;
-	let h = 300;
+	let h = 350;
 
 	var color = d3.scaleOrdinal().range(d3.schemePastel1);
 
@@ -13,7 +13,7 @@ function makeChart(dataset) {
 		.attr('height', h);
 
 	var root = d3.hierarchy(dataset);
-	let tree = d3.tree().size([w - 40, h - 40]);
+	let tree = d3.tree().size([w - 40, h - 50]);
 
 	tree(root);
 
