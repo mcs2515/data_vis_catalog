@@ -1,21 +1,29 @@
 {
 	"nodes": [
-		{"name": "Cup of Coffee"},
-		{"name": "Cup of Tea"},
-		{"name": "Water"},
-		{"name": "Milk"},
-		{"name": "Sugar"},
-		{"name": "Tea Bag"},
-		{"name": "Ground Coffee"}
+		{"name": "College Classes"},
+		{"name": "Communication"},
+        {"name": "Game Design and Dev."},
+        {"name": "New Media Interactive Dev."},
+		{"name": "Public Speaking"},
+		{"name": "Interpersonal Comm."},
+		{"name": "Visual Comm."},
+		{"name": "Rich Media"},
+		{"name": "Data Struct. & Alg Game Sim."},
+		{"name": "New Media Team Project"},
+		{"name": "Data Visualization"}
 	], 
 	"edges": [
+		{ "source": 0, "target": 1},
 		{ "source": 0, "target": 2},
 		{ "source": 0, "target": 3},
-		{ "source": 0, "target": 4},
-		{ "source": 0, "target": 6},
-		{ "source": 1, "target": 2},
-		{ "source": 1, "target": 3},
 		{ "source": 1, "target": 4},
-		{ "source": 1, "target": 5}
+		{ "source": 1, "target": 5},
+		{ "source": 1, "target": 6},
+		{ "source": 2, "target": 7},
+		{ "source": 2, "target": 8},
+		{ "source": 3, "target": 9},
+		{ "source": 3, "target": 10},
+		{ "source": 2, "target": 9},
+		{ "source": 3, "target": 7}
 	] 
 }
