@@ -2,8 +2,8 @@
 	"nodes": [
 		{"name": "College Classes"},
 		{"name": "Communication"},
-        {"name": "Game Design and Dev."},
-        {"name": "New Media Interactive Dev."},
+		{"name": "Game Design and Dev."},
+		{"name": "New Media Interactive Dev."},
 		{"name": "Public Speaking"},
 		{"name": "Interpersonal Comm."},
 		{"name": "Visual Comm."},

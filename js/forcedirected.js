@@ -108,7 +108,7 @@ function onDragEnd(d) {
 }
 
 window.onload = function () {
-  d3.json('../datasets/states.json')
+  d3.json('../datasets/classes.json')
     .then((json) => {
       makeChart(json);
     })
