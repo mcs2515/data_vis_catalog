@@ -135,8 +135,7 @@ function makeChart(dataset) {
 window.onload = function () {
 	d3.csv('../datasets/boxtops.csv', rowConverter)
 		.then((d) => {
-			dataset = d;
-			makeChart(dataset)
+			makeChart(d);
 		});
 
 	chartlink();
