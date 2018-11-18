@@ -98,11 +98,13 @@ button:focus {outline:0;}
 	line-height: 100px;
 	text-align: center;
 	vertical-align: middle;
-	margin: 20px 10px;
+	margin: 20px 8px;
 	margin-top: 20px;
 	transition: all .3s ease-out;
 	text-decoration: none;
 	color: white;
+	font-weight: bold;
+	font-family: sans-serif;
 	z-index: 1;
 	border: 1px solid #e9e7f1;
 }
@@ -149,6 +151,21 @@ button:focus {outline:0;}
 	color: #4f4f4f;
 }
 
+.desc a{
+	font-weight: bold;
+	text-decoration: none;
+	color:#9c92f9;
+}
+
+.desc a:hover{
+	color:#f99c92;
+}
+
+.desc .unlink{
+	color: #4f4f4f;
+	pointer-events: none;
+}
+
 .tags{
 	display: flex;
 }
@@ -172,6 +189,5 @@ button:focus {outline:0;}
 }
 
 .resource a{
-	text-decoration: none;
 	padding-left: 10px;
 }

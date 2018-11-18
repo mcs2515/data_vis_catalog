@@ -18,7 +18,14 @@ function makeChart(dataset) {
 	let path = d3.geoPath()
 		.projection(projection);
 
-	let color = d3.scaleOrdinal(d3.schemeGreens[9]);
+	//http://colorbrewer2.org/#type=sequential&scheme=Greens&n=6
+	let colors = ['#edf8e9','#c7e9c0','#a1d99b','#74c476','#31a354','#006d2c'];
+	let color = d3.scaleThreshold()
+		.domain([1000, 2000, 3000, 4000, 5000])
+		.range(colors);
+	
+	console.log(d3.min(dataset.features, d=>d.properties.value));
+	console.log(d3.max(dataset.features, d=>d.properties.value));
 	
 	var colorScale = d3.scaleThreshold()
     .domain([0 ,1000, 2000, 3000, 4000, 5000])
@@ -30,7 +37,7 @@ function makeChart(dataset) {
 		.enter()
 		.append("path")
 		.attr("d", path)
-		.style('stroke', '#b0d3bf')
+		.style('stroke', 'white')
 		.style("fill", d => {
 			//Get data value
 			let value = d.properties.value;
