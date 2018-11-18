@@ -6,9 +6,8 @@ function makeChart(dataset) {
 	let innerRadius = outerRadius-20;
 
 	
-	let color = d3.scaleOrdinal()
-    .domain(d3.range(4))
-    .range(["#000000", "#FFDD89", "#957244", "#F26223"]);
+	var colors = ['#f99c92', '#92BCF9', '#92f9cf', '#92f0f9'];
+	var color = d3.scaleOrdinal().range(colors);
 	
 	let chart = d3.select('#chordchart')
 		.attr('width', w)
@@ -40,7 +39,7 @@ function makeChart(dataset) {
       .attr("d", arc);
 	
 	chart.append("g")
-		.attr("fill-opacity", 0.67)
+		.attr("fill-opacity", 0.7)
     .selectAll("path")
     .data(chords)
     .enter()

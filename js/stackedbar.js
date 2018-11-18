@@ -33,7 +33,6 @@ function makeChart(dataset) {
     .order(d3.stackOrderAscending);
 
   let stackedData = stack(dataset);
-  console.log(stackedData);
 
   //text veriable to hold concated strings
   let text = '';
@@ -45,16 +44,15 @@ function makeChart(dataset) {
     .append('g')
     .style('fill', function (d, i) {
       if (i % 2 == 0) {
-        return '#fdbe85';
+        return '#92f0f9';
       } else {
-        return '#fd6c70';
+        return '#92BCF9';
       }
     })
     .on('mousemove', function (d) {
       //get key
       text = d.key + ": ";
     })
-
 
   groups.selectAll('rect')
     .data(d => d)

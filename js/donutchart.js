@@ -6,8 +6,8 @@ function makeChart(dataset) {
 	let innerRadius = (h / 2.3) - 50;
 	let outerRadius = h / 2.3;
 
-	let colorScheme = d3.schemeSet2;
-	let color = d3.scaleOrdinal(colorScheme);
+	
+	var colors = ['#f99c92', '#92BCF9', '#92f9cf', '#92f0f9'];
 
 	let chart = d3.select('#donutchart')
 		.attr('width', w)
@@ -31,11 +31,8 @@ function makeChart(dataset) {
 		.attr('transform', `translate(${(w/2)+5}, ${(h/2)+20})`);
 
 	arcs.append('path')
-		.attr('fill', (d, i) => color(i))
-		.style('fill-opacity', 0.9)
-		.attr('d', arc)
-		.append('title')
-		.text(d => d.data.name);
+		.attr('fill', (d, i) => colors[i])
+		.attr('d', arc);
 
 	//chart title
 	chart.append('text')
@@ -50,7 +47,7 @@ function makeChart(dataset) {
 		.attr('transform', d => `translate(${arc.centroid(d)})`)
 		.attr('text-anchor', 'middle')
 		.text(d => d.value + '%')
-		.style('fill', 'white');
+		.style('fill', 'black');
 
 	//add pet names
 	//code: https://stackoverflow.com/questions/8053424/label-outside-arc-pie-chart-d3-js

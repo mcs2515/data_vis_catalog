@@ -47,13 +47,12 @@ function makeChart(countries, wonder) {
 		.attr('cx', d => projection([d.long, d.lat])[0])
 		.attr('cy', d => projection([d.long, d.lat])[1])
 		.attr('r', 6)
-		.attr('fill', "green")
-		.style('opacity', .6)
+		.attr('fill', "#f99c92")
 		.on('mousemove', function (d) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('opacity', 1)
+				.style('fill', "#92f9cf")
 				.style('cursor', 'pointer');
 
 			tooltip
@@ -62,13 +61,13 @@ function makeChart(countries, wonder) {
 				.text(d.wonder)
 				.transition("tooltip")
 				.duration(200)
-				.style("opacity", .8);
+				.style("opacity", 1);
 		})
 		.on('mouseout', function (d) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('opacity', .6);
+				.style('fill', '#f99c92');
 
 			tooltip
 				.transition("tooltip")

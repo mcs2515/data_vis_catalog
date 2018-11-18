@@ -17,7 +17,7 @@ function makeChart(dataset) {
 	let marginL = 40;
 	let marginR = 50;
 	let marginB = 50;
-	let color = ['#78c679', '#ffffcc', '#c2e699']
+	let color = ['#92BCF9', '#f99c92', '#92f9cf']
 	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
 
 	//sort the data first!
@@ -55,12 +55,13 @@ function makeChart(dataset) {
 
 	stack.keys(keys);
 	let stackedData = stack(dataset);
-	console.log(stackedData);
 
 	let area = d3.area()
 		.x(d => xScale(d.data.year))
 		.y0(d => yScale(d[0]))
 		.y1(d => yScale(d[1]));
+	
+	let coffee;
 
 	chart.selectAll("path")
 		.data(stackedData)
@@ -68,7 +69,7 @@ function makeChart(dataset) {
 		.append("path")
 		.attr("d", area)
 		.attr("fill", (d, i) => color[i])
-		.style('opacity', 1)
+		.style('opacity', .8)
 		.attr('transform', `translate(30, 0)`)
 		.on('mousemove', function (d) {
 
@@ -76,11 +77,21 @@ function makeChart(dataset) {
 				.transition("fill")
 				.duration(250)
 				.style('cursor', 'pointer');
+		
+			if(d.key == 'brewed_coffee'){
+				coffee = 'Brewed Coffee'
+			}
+			else if(d.key == 'latte'){
+				coffee = 'Latte'
+			}
+			else{
+				coffee = 'Iced Coffee'
+			}
 
 			tooltip
 				.style('left', (d3.event.pageX) - 50 + "px")
 				.style('top', (d3.event.pageY) - 40 + "px")
-				.text(d.key)
+				.text(coffee)
 				.transition("tooltip")
 				.duration(200)
 				.style("opacity", .8);
@@ -131,8 +142,7 @@ function makeChart(dataset) {
 window.onload = function () {
 	d3.csv('../datasets/drinks.csv', rowConverter)
 		.then((d) => {
-			dataset = d;
-			makeChart(dataset)
+			makeChart(d)
 		});
 
 	chartlink();

@@ -2,7 +2,8 @@ function makeChart(dataset) {
 	let w = 700;
 	let h = 350;
 
-	var color = d3.scaleOrdinal().range(d3.schemeSet3);
+	var colors = ['#92bcf9', '#aacbfa','#dbe9fd'];
+	var color = d3.scaleOrdinal().range(colors);
 
 	let chart = d3.select('#treemapchart')
 		.attr('width', w)
@@ -25,9 +26,8 @@ function makeChart(dataset) {
 		.attr('x', d => d.x0)
 		.attr('y', d => d.y0)
 		.attr('width', d => d.x1 - d.x0)
-		.attr('height', d => d.y1 - d.y0)
+		.attr('height', d => (d.y1 - d.y0)-5)
 		.style('fill', d => color(d.depth))
-		.style('fill-opacity', 0.5)
 		.attr('transform', `translate(15, 0)`);
 
 	// add text 

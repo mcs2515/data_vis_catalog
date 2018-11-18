@@ -7,7 +7,8 @@ function makeChart(dataset) {
 	let h = 350;
 
 	let root = d3.hierarchy(dataset).sum(d => d.value || 0);
-	var color = d3.scaleOrdinal().range(d3.schemeSet3);
+	var colors = ['#f99c92', '#fcc8c2','#fddedb'];
+	var color = d3.scaleOrdinal().range(colors);
 
 	let chart = d3.select('#packedchart')
 		.attr('width', w)
@@ -25,7 +26,6 @@ function makeChart(dataset) {
 		.enter()
 		.append('circle')
 		.style('fill', d => color(d.depth))
-		.style('fill-opacity', 0.6)
 		.attr('cx', d => d.x)
 		.attr('cy', d => d.y)
 		.attr('r', d => d.r);

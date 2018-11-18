@@ -7,8 +7,7 @@ function makeChart(dataset) {
 	let innerRadius = 0;
 	let outerRadius = h / 2.2;
 
-	let colorScheme = d3.schemeSet2;
-	let color = d3.scaleOrdinal(colorScheme);
+	var colors = ['#f99c92', '#92BCF9', '#92f9cf', '#92f0f9'];
 
 	let chart = d3.select('#piechart')
 		.attr('width', w)
@@ -32,18 +31,17 @@ function makeChart(dataset) {
 
 	//create the pie chart
 	arcs.append('path')
-		.attr('fill', (d, i) => color(i))
-		.style('fill-opacity', 0.9)
-		.attr('d', arc)
-		.append('title')
-		.text(d => d.data.name);
+		.attr('fill', (d, i) => colors[i])
+		.attr('stroke-width', 2)
+		.attr('stroke', "white")
+		.attr('d', arc);
 
 	//add value labels to pie chart
 	arcs.append('text')
 		.attr('transform', d => `translate(${arc.centroid(d)})`)
 		.attr('text-anchor', 'middle')
 		.text(d => d.value + '%')
-		.style('fill', 'white');
+		.style('fill', 'black');
 
 	//	//legend
 	//	let legendScale = d3.scaleOrdinal()

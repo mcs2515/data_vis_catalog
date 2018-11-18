@@ -1,13 +1,9 @@
-function rowConverter(row) {
-  return {
-	}
-}
-
 function makeChart(dataset) {
 	let w = 700;
 	let h = 350;
 	
-	var color = d3.scaleOrdinal().range(d3.schemeSet2);
+	var colors = ['#f99c92', '#92BCF9', '#92f9cf', '#92f0f9'];
+	var color = d3.scaleOrdinal().range(colors);
 	
 	let chart = d3.select('#partitionchart')
 		.attr('width', w)
@@ -32,7 +28,7 @@ function makeChart(dataset) {
 		.attr('width', d => d.x1 - d.x0)
 		.attr('height', d => d.y1 - d.y0)
 		.style('fill', d => color(d.depth))
-		.style('fill-opacity', 0.6)
+		.style('opacity', .8)
 		.attr('transform', `translate(15, 0)`);
 
 	// add text 

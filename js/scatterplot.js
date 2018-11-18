@@ -42,20 +42,20 @@ function makeChart(dataset) {
 		.attr('cx', d=> xScale(d.score))
 		.attr('cy', d=> yScale(d.hours))
 		.attr('r', 8)
-		.attr('fill', '#71d6a7')
+		.attr('fill', '#92BCF9')
 		.attr('transform', `translate(30,0)`)
 		.on('mousemove', function (d) {
 
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#efa38c')
+				.style('fill', '#f99b92')
 				.style('cursor', 'pointer');
 
 			tooltip
 				.style('left', (d3.event.pageX) - 50 + "px")
 				.style('top', (d3.event.pageY) - 40 + "px")
-				.text( d.score + ", " + d.hours)
+				.text( "Student Score: " + d.score)
 				.transition("tooltip")
 				.duration(200)
 				.style("opacity", .8);
@@ -64,7 +64,7 @@ function makeChart(dataset) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#71d6a7');
+				.style('fill', '#92BCF9');
 
 			tooltip
 				.transition("tooltip")
