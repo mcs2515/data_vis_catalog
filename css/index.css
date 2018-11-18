@@ -103,7 +103,6 @@ button:focus {outline:0;}
 	transition: all .3s ease-out;
 	text-decoration: none;
 	color: white;
-	font-weight: bold;
 	font-family: sans-serif;
 	z-index: 1;
 	border: 1px solid #e9e7f1;
