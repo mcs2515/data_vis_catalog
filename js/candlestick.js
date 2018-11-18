@@ -19,7 +19,7 @@ function makeChart(dataset) {
 
 	let parseDate = d3.timeParse("%Y-%m-%d");
 
-	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
+	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').attr('class', 'multi-line').style("opacity", 1);
 
 	//bar width = (width of chart - margins ) / length of dataset  - padding
 	let barwidth = (w - (marginL + marginR)) / (dataset.length) - 30;
@@ -51,15 +51,46 @@ function makeChart(dataset) {
 		.attr("transform", d => `translate(${xScale(parseDate(d.date))+30},0)`)
 		.attr("stroke", d => {
 			if (d.open > d.close) {
-				return d3.schemeSet1[0];
+				return "#f99c92";
 			} else if (d.close > d.open) {
-				return d3.schemeSet1[2];
+				return "#92f9cf";
 			} else {
-				return d3.schemeSet1[8];
+				return d3.schemeSet1[8]; //grey
 			}
 		})
 		.attr("y1", d => yScale(d.low))
-		.attr("y2", d => yScale(d.high));
+		.attr("y2", d => yScale(d.high))
+		.on('mousemove', function (d) {
+
+			d3.select(this)
+				.transition("fill")
+				.duration(250)
+				.style('fill', '#f99b92')
+				.style('cursor', 'pointer');
+
+			tooltip
+				.style('left', (d3.event.pageX) - 55 + "px")
+				.style('top', (d3.event.pageY) - 120 + "px")
+				.text(`${d.date}
+								Open: $${d.open}
+								Close: $${d.close}
+								Low: $${d.low}
+								High: $${d.high}`)
+				.transition("tooltip")
+				.duration(200)
+				.style("opacity", .8);
+		})
+		.on('mouseout', function (d) {
+			d3.select(this)
+				.transition("fill")
+				.duration(250)
+				.style('fill', '#8adae2');
+
+			tooltip
+				.transition("tooltip")
+				.duration(500)
+				.style("opacity", 0);
+		});
 
 	g.append("line")
 		.attr("y1", d => yScale(d.low))

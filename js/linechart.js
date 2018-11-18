@@ -40,7 +40,7 @@ function makeChart(dataset) {
 		.enter()
 		.append('path')
 		.attr('class', 'line')
-		.style('stroke', '#e28a8a') //d9c8ca
+		.style('stroke', '#92f0f9') //d9c8ca
 		.attr("stroke-width", 5)
 		.style('fill', 'none')
 		.attr('transform', `translate(30, 0)`)
@@ -53,23 +53,22 @@ function makeChart(dataset) {
 		.enter()
 		.append('circle')
 		.attr('class', 'circle')
-		.attr('r', 5)
+		.attr('r', 6)
 		.attr('cx', d => xScale(parseDate(d.date)))
 		.attr('cy', d => yScale(d.drinks_sold))
 		.attr('transform', `translate(30, 0)`)
-		.style('fill', '#cc6161')
+		.style('fill', '#8adae2')
 		.on('mousemove', function (d) {
 
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', 'white')
-				.style('stroke', "#cc6161")
+				.style('fill', '#f99b92')
 				.style('cursor', 'pointer');
 
 			tooltip
 				.style('left', (d3.event.pageX) - 50 + "px")
-				.style('top', (d3.event.pageY) - 40 + "px")
+				.style('top', (d3.event.pageY) - 60 + "px")
 				.text(d.drinks_sold.toLocaleString() + " drinks")
 				.transition("tooltip")
 				.duration(200)
@@ -79,14 +78,13 @@ function makeChart(dataset) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#cc6161')
-				.style('stroke', "none");
+				.style('fill', '#8adae2');
 
 			tooltip
 				.transition("tooltip")
 				.duration(500)
 				.style("opacity", 0);
-		});;
+		});
 
 	//AXES
 	chart.append('g')
@@ -122,8 +120,7 @@ function makeChart(dataset) {
 window.onload = function () {
 	d3.json('../datasets/latte.json')
 		.then((json) => {
-			dataset = json;
-			makeChart(dataset);
+			makeChart(json);
 		});
 
 	chartlink();

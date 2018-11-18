@@ -5,13 +5,11 @@ function rowConverter(row) {
 	}
 };
 
-let dataset;
-
 function makeChart(dataset) {
 
 	let w = 700;
 	let h = 350;
-	
+
 	let marginT = 20;
 	let marginL = 40;
 	let marginR = 50;
@@ -66,13 +64,13 @@ function makeChart(dataset) {
 		.attr('width', barwidth)
 		.attr('height', d => h - yScale(d.boxtops) - marginB)
 		.attr('transform', `translate(15,0)`)
-		.style('fill', '#8dafef')
+		.style('fill', '#92BCF9')
 		.on('mousemove', function (d) {
 
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#efa38c')
+				.style('fill', '#f99c92')
 				.style('cursor', 'pointer');
 
 			tooltip
@@ -87,7 +85,7 @@ function makeChart(dataset) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#8dafef');
+				.style('fill', '#92BCF9');
 
 			tooltip
 				.transition("tooltip")
@@ -120,7 +118,7 @@ function makeChart(dataset) {
 		.attr("y", h - 10)
 		.style("text-anchor", "middle")
 		.text("Classes");
-	
+
 	//y-axis
 	chart.append("text")
 		.attr("class", "labels")

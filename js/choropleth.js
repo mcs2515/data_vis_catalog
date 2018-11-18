@@ -2,6 +2,7 @@ function makeChart(dataset) {
 	let w = 700;
 	let h = 350;
 
+
 	let tooltip = d3.select("body").append("div").attr('id', 'tooltip').style("opacity", 0);
 
 	let chart = d3.select('#choroplethchart')
@@ -17,9 +18,11 @@ function makeChart(dataset) {
 	let path = d3.geoPath()
 		.projection(projection);
 
-	let color = d3.scaleOrdinal()
-		.domain([d3.min(dataset.features, d => d.properties.value), d3.max(dataset, d => d.properties.value)])
-		.range(d3.schemeBlues[9]);
+	let color = d3.scaleOrdinal(d3.schemeGreens[9]);
+	
+	var colorScale = d3.scaleThreshold()
+    .domain([0 ,1000, 2000, 3000, 4000, 5000])
+    .range(color);
 
 	//Bind data and create one path per GeoJSON feature
 	chart.selectAll("path")
@@ -27,7 +30,7 @@ function makeChart(dataset) {
 		.enter()
 		.append("path")
 		.attr("d", path)
-		.style('stroke', "#2c7fb8")
+		.style('stroke', '#b0d3bf')
 		.style("fill", d => {
 			//Get data value
 			let value = d.properties.value;
@@ -45,7 +48,7 @@ function makeChart(dataset) {
 			d3.select(this)
 				.transition("fill")
 				.duration(250)
-				.style('fill', '#efa38c')
+				.style('fill', '#f99c92')
 				.style('cursor', 'pointer');
 
 			tooltip
@@ -88,7 +91,6 @@ window.onload = function () {
 		.then((values) => {
 
 			let [data, json] = values;
-			console.log(data);
 
 			for (var i = 0; i < data.length; i++) {
 				var dataState = data[i].state;

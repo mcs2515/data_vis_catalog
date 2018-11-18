@@ -70,12 +70,15 @@ svg {
   font-size: 10pt;
 }
 
-.desc {
-	position: relative;
-	margin: 0 auto;
-	padding: 5em 0px 3em 0px;
-	max-width: 1050px;
-	margin-bottom: 3em;
-	font-family: sans-serif;
-	color: #4f4f4f;
+.multi-line{
+	max-width: 100px;
+}
+
+.multi-line#tooltip{
+	text-align: left;
+	padding: 5px 5px 5px 8px;
+}
+
+.title{
+	fill: black;
 }

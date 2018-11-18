@@ -1,12 +1,9 @@
-function rowConverter(row) {
-	return {}
-}
-
 function makeChart(dataset) {
 	let w = 700;
 	let h = 350;
 
-	var color = d3.scaleOrdinal().range(d3.schemePastel1);
+	var colors = ['#f99c92', '#92BCF9', '#92f9cf']
+	var color = d3.scaleOrdinal().range(colors);
 
 	let chart = d3.select('#treechart')
 		.attr('width', w)
@@ -31,12 +28,15 @@ function makeChart(dataset) {
 	chart.selectAll('rect')
 		.data(root.descendants())
 		.enter()
-		.append('circle')
+		.append('rect')
 		.classed('node', true)
 		.style('fill', d => color(d.depth))
-		.attr('cx', d => d.x + 30)
-		.attr('cy', d => d.y + 20)
-		.attr('r', 20);
+		.attr('width', 80)
+		.attr('height', 30)
+		.attr('x', d => d.x - 9)
+		.attr('y', d => d.y + 4)
+		.attr('rx', 5)
+		.attr('ry', 5);
 
 	chart.selectAll('text')
 		.data(root.descendants())
