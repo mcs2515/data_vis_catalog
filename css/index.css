@@ -181,7 +181,7 @@ button:focus {outline:0;}
 	margin-right: 10px;
 }
 
-.summary{
+.summary, .desc{
 	line-height: 1.6;
 }
 .resource{
