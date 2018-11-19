@@ -2,65 +2,69 @@
 
 <html>
 
-	<head>
-		<title>Data Viz Catalogue</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1.0">
-		<script src="https://d3js.org/d3.v5.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="../css/charts.css">
-		<link rel="stylesheet" type="text/css" href="../css/index.css">
-		<script src="../js/tree.js"></script>
-		<script src="../js/chartlink.js"></script>
-	</head>
+<head>
+	<title>Data Viz Catalogue</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/charts.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<script src="../js/tree.js"></script>
+	<script src="../js/chartlink.js"></script>
+</head>
 
-	<body>
-		<div id='background'></div>
-		<div class='header'>
-			<h3>Data Visualization Catalogue</h3>
-			<div class='links'>
-				<a href="../index.html">About</a>
-				<button id="charts-link">Charts</button>
-			</div>
+<body>
+	<div id='background'></div>
+	<div class='header'>
+		<h3>Data Visualization Catalogue</h3>
+		<div class='links'>
+			<a href="../index.html">About</a>
+			<button id="charts-link">Charts</button>
 		</div>
+	</div>
 
-		<div class="graph">
-			<h2>Animal Diagram</h2> 
-			<svg id='treechart'></svg>
-		</div>
+	<div class="graph">
+		<h2>Animal Diagram</h2>
+		<svg id='treechart'></svg>
+	</div>
 
-		<div class='desc'>
-			<h1>Tree Diagram</h1>
-			<div class='tags'>
-				<p>Marks: </p><p class='tag'>Points</p> <p class='tag'>Connections</p>
-				<p>Channel:</p><p class='tag'>Lines</p>
-			</div>
-			<p class='summary'>Tree diagrams are usually used to depict relationships of objects in a tree-like structure. They are generally used to show relations or descent in family, scientific classification, evolution and other business purposes.  The structure of a tree diagram usually is made up of a root node, branches and nodes.  The root node has no superior or parent. Then there are nodes are connected by branches or by a line that shows a connection between another node. Lastly leaf nodes are nodes who have no children nodes.</p> 
-			<div class='resource'> Resources:<a href='https://datavizcatalogue.com/methods/tree_diagram.html' target='_blank'>DataVizCatalogue: Tree Diagram</a></div>
+	<div class='desc'>
+		<h1>Tree Diagram</h1>
+		<div class='tags'>
+			<p>Marks: </p>
+			<p class='tag'>Points</p>
+			<p class='tag'>Connections</p>
+			<p>Channel:</p>
+			<p class='tag'>Lines</p>
 		</div>
-		
-		<div class='menu hidden'>
-				<div class= 'links'>
-					<a href="area.html">area</a>
-					<a href="barchart.html">bar</a>
-					<a href="candlestick.html">candlestick</a>
-					<a href="chord.html">chord</a>
-					<a href="choropleth.html">choropleth</a>
-					<a href="cluster.html">cluster</a>
-					<a href="donut.html">donut</a>
-					<a href="forced.html">force</a>
-					<a href="line.html">line</a>
-					<a href="maps.html">maps</a>
-					<a href="packedcircles.html">packed circles</a>
-					<a href="partition.html">partition</a>
-					<a href="pie.html">pie</a>
-					<a href="scatter.html">scatter</a>
-					<a href="stackedarea.html">stacked area</a>
-					<a href="stackedbar.html">stacked bar</a>
-					<a href="tree.html">tree</a>
-					<a href="treemap.html">treemap</a>
-				</div>
+		<p class='summary'>Tree diagrams are usually used to depict relationships of objects in a tree-like structure. They are generally used to show relations or descent in family, scientific classification, evolution and other business purposes. The structure of a tree diagram usually is made up of a root node, branches and nodes. The root node has no superior or parent. Then there are nodes are connected by branches or by a line that shows a connection between another node. Lastly leaf nodes are nodes who have no children nodes.</p>
+		<div class='resource'> Resources:<a href='https://datavizcatalogue.com/methods/tree_diagram.html' target='_blank'>DataVizCatalogue: Tree Diagram</a></div>
+	</div>
+
+	<div class='menu hidden'>
+		<div class='links'>
+			<a href="area.html"><img src="../media/area.png" width="100" height="100" title="Area"></a>
+			<a href="barchart.html"><img src="../media/bar.png" width="100" height="100" title="Bar"></a>
+			<a href="candlestick.html"><img src="../media/candlestick.png" width="100" height="100" title="Candlestick"></a>
+			<a href="chord.html"><img src="../media/chord.png" width="100" height="100" title="Chord"></a>
+			<a href="choropleth.html"><img src="../media/choropleth.png" width="100" height="100" title="Choropleth"></a>
+			<a href="cluster.html"><img src="../media/cluster.png" width="100" height="100" title="Cluster"></a>
+			<a href="donut.html"><img src="../media/donut.png" width="100" height="100" title="Donut"></a>
+			<a href="forced.html"><img src="../media/forced.png" width="100" height="100" title="Forced"></a>
+			<a href="line.html"><img src="../media/line.png" width="100" height="100" title="Line"></a>
+			<a href="maps.html"><img src="../media/point_map.png" width="100" height="100" title="Point Map"></a>
+			<a href="packedcircles.html"><img src="../media/circle_packing.png" width="100" height="100" title="Packed Circles"></a>
+			<a href="partition.html"><img src="../media/partition.png" width="100" height="100" title="Partition"></a>
+			<a href="pie.html"><img src="../media/pie.png" width="100" height="100" title="Pie"></a>
+			<a href="scatter.html"><img src="../media/scatterplot.png" width="100" height="100" title="Scatterplot"></a>
+			<a href="stackedarea.html"><img src="../media/stackedarea.png" width="100" height="100" title="Stacked Area"></a>
+			<a href="stackedbar.html"><img src="../media/stackedbar.png" width="100" height="100" title="Stacked Bar"></a>
+			<a href="tree.html"><img src="../media/tree.png" width="100" height="100" title="Tree"></a>
+			<a href="treemap.html"><img src="../media/treemap.png" width="100" height="100" title="Treemap"></a>
 		</div>
-		<div class="border"></div>
-	</body>
+	</div>
+	<div class="border"></div>
+</body>
+
 </html>

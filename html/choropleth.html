@@ -2,65 +2,68 @@
 
 <html>
 
-	<head>
-		<title>Data Viz Catalogue</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1.0">
-		<script src="https://d3js.org/d3.v5.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="../css/charts.css">
-		<link rel="stylesheet" type="text/css" href="../css/index.css">
-		<script src="../js/choropleth.js"></script>
-		<script src="../js/chartlink.js"></script>
-	</head>
+<head>
+	<title>Data Viz Catalogue</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/charts.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<script src="../js/choropleth.js"></script>
+	<script src="../js/chartlink.js"></script>
+</head>
 
-	<body>
-		<div id='background'></div>
-		<div class='header'>
-			<h3>Data Visualization Catalogue</h3>
-			<div class='links'>
-				<a href="../index.html">About</a>
-				<button id="charts-link">Charts</button>
-			</div>
+<body>
+	<div id='background'></div>
+	<div class='header'>
+		<h3>Data Visualization Catalogue</h3>
+		<div class='links'>
+			<a href="../index.html">About</a>
+			<button id="charts-link">Charts</button>
 		</div>
-		
-		<div class="graph">
-			<h2>Avg. Monthly Tips per Waitor by State</h2> 
-			<svg id='choroplethchart'></svg>
+	</div>
+
+	<div class="graph">
+		<h2>Avg. Monthly Tips per Waitor by State</h2>
+		<svg id='choroplethchart'></svg>
+	</div>
+
+	<div class='desc'>
+		<h1>Choropleth Map</h1>
+		<div class='tags'>
+			<p>Mark: </p>
+			<p class='tag'>Area</p>
+			<p>Channel:</p>
+			<p class='tag'>Color</p>
 		</div>
-		
-		<div class='desc'>
-			<h1>Choropleth Map</h1>
-			<div class='tags'>
-				<p>Mark: </p><p class='tag'>Area</p>
-				<p>Channel:</p><p class='tag'>Color</p>
-			</div>
-			<p class='summary'>Choropleth maps display geographical areas or regions colored based on a data variable. Usually, the darker the color is the higher that variable is in value for that region. However, the color can be a blending of one color to another to represent the value of the variable. The use of different colors helps the viewer visualize the data for each area and to show variation across several locations. A downside of choropleth maps is that it makes it hard for the viewer to see the actual value of the data. Another downside is that bigger areas on the map seem to have more emphasis than smaller ones to the viewer. When using data for choropleth maps, instead of using raw data values, use normalized values.</p> 
-			<div class='resource'> Resources:<a href='https://datavizcatalogue.com/methods/choropleth.html' target='_blank'>DataVizCatalogue: Choropleth Map</a></div>
+		<p class='summary'>Choropleth maps display geographical areas or regions colored based on a data variable. Usually, the darker the color is the higher that variable is in value for that region. However, the color can be a blending of one color to another to represent the value of the variable. The use of different colors helps the viewer visualize the data for each area and to show variation across several locations. A downside of choropleth maps is that it makes it hard for the viewer to see the actual value of the data. Another downside is that bigger areas on the map seem to have more emphasis than smaller ones to the viewer. When using data for choropleth maps, instead of using raw data values, use normalized values.</p>
+		<div class='resource'> Resources:<a href='https://datavizcatalogue.com/methods/choropleth.html' target='_blank'>DataVizCatalogue: Choropleth Map</a></div>
+	</div>
+
+	<div class='menu hidden'>
+		<div class='links'>
+			<a href="area.html"><img src="../media/area.png" width="100" height="100" title="Area"></a>
+			<a href="barchart.html"><img src="../media/bar.png" width="100" height="100" title="Bar"></a>
+			<a href="candlestick.html"><img src="../media/candlestick.png" width="100" height="100" title="Candlestick"></a>
+			<a href="chord.html"><img src="../media/chord.png" width="100" height="100" title="Chord"></a>
+			<a href="choropleth.html"><img src="../media/choropleth.png" width="100" height="100" title="Choropleth"></a>
+			<a href="cluster.html"><img src="../media/cluster.png" width="100" height="100" title="Cluster"></a>
+			<a href="donut.html"><img src="../media/donut.png" width="100" height="100" title="Donut"></a>
+			<a href="forced.html"><img src="../media/forced.png" width="100" height="100" title="Forced"></a>
+			<a href="line.html"><img src="../media/line.png" width="100" height="100" title="Line"></a>
+			<a href="maps.html"><img src="../media/point_map.png" width="100" height="100" title="Point Map"></a>
+			<a href="packedcircles.html"><img src="../media/circle_packing.png" width="100" height="100" title="Packed Circles"></a>
+			<a href="partition.html"><img src="../media/partition.png" width="100" height="100" title="Partition"></a>
+			<a href="pie.html"><img src="../media/pie.png" width="100" height="100" title="Pie"></a>
+			<a href="scatter.html"><img src="../media/scatterplot.png" width="100" height="100" title="Scatterplot"></a>
+			<a href="stackedarea.html"><img src="../media/stackedarea.png" width="100" height="100" title="Stacked Area"></a>
+			<a href="stackedbar.html"><img src="../media/stackedbar.png" width="100" height="100" title="Stacked Bar"></a>
+			<a href="tree.html"><img src="../media/tree.png" width="100" height="100" title="Tree"></a>
+			<a href="treemap.html"><img src="../media/treemap.png" width="100" height="100" title="Treemap"></a>
 		</div>
-		
-		<div class='menu hidden'>
-				<div class= 'links'>
-					<a href="area.html">area</a>
-					<a href="barchart.html">bar</a>
-					<a href="candlestick.html">candlestick</a>
-					<a href="chord.html">chord</a>
-					<a href="choropleth.html">choropleth</a>
-					<a href="cluster.html">cluster</a>
-					<a href="donut.html">donut</a>
-					<a href="forced.html">force</a>
-					<a href="line.html">line</a>
-					<a href="maps.html">maps</a>
-					<a href="packedcircles.html">packed circles</a>
-					<a href="partition.html">partition</a>
-					<a href="pie.html">pie</a>
-					<a href="scatter.html">scatter</a>
-					<a href="stackedarea.html">stacked area</a>
-					<a href="stackedbar.html">stacked bar</a>
-					<a href="tree.html">tree</a>
-					<a href="treemap.html">treemap</a>
-				</div>
-		</div>
-		<div class="border"></div>
-	</body>
+	</div>
+	<div class="border"></div>
+</body>
+
 </html>
